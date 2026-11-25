@@ -1,0 +1,17 @@
+digest_config.json
+*.local.json
+.env
+.env.*
+!.env.example
+resumes/
+job_hunter/profile.json
+job_hunter/data/
+.venv/
+job_hunter/.venv/
+__pycache__/
+*.pyc
+*.sqlite3
+*.db
+*.log
+output/
+tmp/

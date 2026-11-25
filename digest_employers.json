@@ -1,0 +1,434 @@
+[
+  {
+    "company": "Airbyte",
+    "source": "ashby",
+    "board": "airbyte",
+    "official_domain": "airbyte.com",
+    "official_careers_url": "https://airbyte.com/company/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "ClickHouse",
+    "source": "ashby",
+    "board": "clickhouse",
+    "official_domain": "clickhouse.com",
+    "official_careers_url": "https://clickhouse.com/company/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Cohere Health",
+    "source": "greenhouse",
+    "board": "coherehealth",
+    "official_domain": "coherehealth.com",
+    "official_careers_url": "https://www.coherehealth.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Cribl",
+    "source": "greenhouse",
+    "board": "cribl",
+    "official_domain": "cribl.io",
+    "official_careers_url": "https://cribl.io/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Dataiku",
+    "source": "greenhouse",
+    "board": "dataiku",
+    "official_domain": "dataiku.com",
+    "official_careers_url": "https://www.dataiku.com/company/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "HealthVerity",
+    "source": "greenhouse",
+    "board": "healthverity",
+    "official_domain": "healthverity.com",
+    "official_careers_url": "https://healthverity.com/company/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Healthie",
+    "source": "greenhouse",
+    "board": "healthie",
+    "official_domain": "gethealthie.com",
+    "official_careers_url": "https://www.gethealthie.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Monte Carlo",
+    "source": "ashby",
+    "board": "montecarlodata",
+    "official_domain": "montecarlo.ai",
+    "official_careers_url": "https://montecarlo.ai/careers-at-monte-carlo",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Nuna",
+    "source": "ashby",
+    "board": "nuna",
+    "official_domain": "nuna.com",
+    "official_careers_url": "https://www.nuna.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Omada Health",
+    "source": "greenhouse",
+    "board": "omadahealth",
+    "official_domain": "omadahealth.com",
+    "official_careers_url": "https://www.omadahealth.com/about-us/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Prefect",
+    "source": "ashby",
+    "board": "prefect",
+    "official_domain": "prefect.io",
+    "official_careers_url": "https://www.prefect.io/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Ro",
+    "source": "lever",
+    "board": "ro",
+    "official_domain": "ro.co",
+    "official_careers_url": "https://ro.co/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Amplitude",
+    "source": "ashby",
+    "board": "amplitude",
+    "official_domain": "amplitude.com",
+    "official_careers_url": "https://amplitude.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Attentive",
+    "source": "greenhouse",
+    "board": "attentive",
+    "official_domain": "attentive.com",
+    "official_careers_url": "https://www.attentive.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Benchling",
+    "source": "ashby",
+    "board": "benchling",
+    "official_domain": "benchling.com",
+    "official_careers_url": "https://www.benchling.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Braze",
+    "source": "greenhouse",
+    "board": "braze",
+    "official_domain": "braze.com",
+    "official_careers_url": "https://www.braze.com/company/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Equip Health",
+    "source": "ashby",
+    "board": "equip",
+    "official_domain": "equip.health",
+    "official_careers_url": "https://equip.health/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Grow Therapy",
+    "source": "ashby",
+    "board": "grow-therapy",
+    "official_domain": "growtherapy.com",
+    "official_careers_url": "https://growtherapy.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "LaunchDarkly",
+    "source": "greenhouse",
+    "board": "launchdarkly",
+    "official_domain": "launchdarkly.com",
+    "official_careers_url": "https://launchdarkly.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Maven Clinic",
+    "source": "greenhouse",
+    "board": "mavenclinic",
+    "official_domain": "mavenclinic.com",
+    "official_careers_url": "https://www.mavenclinic.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Modern Health",
+    "source": "greenhouse",
+    "board": "modernhealth",
+    "official_domain": "modernhealth.com",
+    "official_careers_url": "https://www.modernhealth.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "MotherDuck",
+    "source": "ashby",
+    "board": "MotherDuck",
+    "official_domain": "motherduck.com",
+    "official_careers_url": "https://motherduck.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Recursion",
+    "source": "greenhouse",
+    "board": "recursionpharmaceuticals",
+    "official_domain": "recursion.com",
+    "official_careers_url": "https://www.recursion.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Sentry",
+    "source": "ashby",
+    "board": "sentry",
+    "official_domain": "sentry.io",
+    "official_careers_url": "https://sentry.io/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Supabase",
+    "source": "ashby",
+    "board": "supabase",
+    "official_domain": "supabase.com",
+    "official_careers_url": "https://supabase.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "insitro",
+    "source": "ashby",
+    "board": "insitro",
+    "official_domain": "insitro.com",
+    "official_careers_url": "https://www.insitro.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Cockroach Labs",
+    "source": "greenhouse",
+    "board": "cockroachlabs",
+    "official_domain": "cockroachlabs.com",
+    "official_careers_url": "https://www.cockroachlabs.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Customer.io",
+    "source": "greenhouse",
+    "board": "customerio",
+    "official_domain": "customer.io",
+    "official_careers_url": "https://customer.io/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Hims & Hers",
+    "source": "ashby",
+    "board": "hims-and-hers",
+    "official_domain": "hims.com",
+    "official_careers_url": "https://www.hims.com/careers-professionals",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Clover Health",
+    "source": "greenhouse",
+    "board": "cloverhealth",
+    "official_domain": "cloverhealth.com",
+    "official_careers_url": "https://www.cloverhealth.com/about-us/current-openings",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Cedar",
+    "source": "greenhouse",
+    "board": "careportalinc",
+    "official_domain": "cedar.com",
+    "official_careers_url": "https://www.cedar.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Zocdoc",
+    "source": "greenhouse",
+    "board": "zocdoc",
+    "official_domain": "zocdoc.com",
+    "official_careers_url": "https://www.zocdoc.com/about/careers-list/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Lyra Health",
+    "source": "lever",
+    "board": "lyrahealth",
+    "official_domain": "lyrahealth.com",
+    "official_careers_url": "https://careers.lyrahealth.com/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Collective Health",
+    "source": "greenhouse",
+    "board": "collectivehealth",
+    "official_domain": "collectivehealth.com",
+    "official_careers_url": "https://jobs.collectivehealth.com/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Spring Health",
+    "source": "ashby",
+    "board": "deaa6ad2-d184-436b-b69e-17f761da1d94",
+    "official_domain": "springhealth.com",
+    "official_careers_url": "https://www.springhealth.com/open-roles",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "PENN Interactive",
+    "source": "greenhouse",
+    "board": "penninteractive",
+    "official_domain": "pennentertainment.com",
+    "official_careers_url": "https://www.pennentertainment.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Sailor Health",
+    "source": "ashby",
+    "board": "sailorhealth",
+    "official_domain": "sailorhealth.com",
+    "official_careers_url": "https://www.sailorhealth.com/careers/corporate",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "MeridianLink",
+    "source": "ashby",
+    "board": "meridianlink",
+    "official_domain": "meridianlink.com",
+    "official_careers_url": "https://www.meridianlink.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "People Data Labs",
+    "source": "ashby",
+    "board": "people-data-labs",
+    "official_domain": "peopledatalabs.com",
+    "official_careers_url": "https://www.peopledatalabs.com/company#jobs",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Virta Health",
+    "source": "ashby",
+    "board": "virtahealth",
+    "official_domain": "virtahealth.com",
+    "official_careers_url": "https://www.virtahealth.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Rula",
+    "source": "ashby",
+    "board": "rula",
+    "official_domain": "rula.com",
+    "official_careers_url": "https://www.rula.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Talkspace",
+    "source": "greenhouse",
+    "board": "talkspace",
+    "official_domain": "talkspace.com",
+    "official_careers_url": "https://www.talkspace.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Hinge Health",
+    "source": "ashby",
+    "board": "hinge-health",
+    "official_domain": "hingehealth.com",
+    "official_careers_url": "https://www.hingehealth.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Iterable",
+    "source": "ashby",
+    "board": "iterable",
+    "official_domain": "iterable.com",
+    "official_careers_url": "https://iterable.com/careers/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Affirm",
+    "source": "greenhouse",
+    "board": "affirm",
+    "official_domain": "affirm.com",
+    "official_careers_url": "https://www.affirm.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Fivetran",
+    "source": "greenhouse",
+    "board": "fivetran",
+    "official_domain": "fivetran.com",
+    "official_careers_url": "https://www.fivetran.com/careers",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Starburst",
+    "source": "greenhouse",
+    "board": "starburst",
+    "official_domain": "starburst.io",
+    "official_careers_url": "https://www.starburst.io/careers/open-roles/",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  },
+  {
+    "company": "Databricks",
+    "source": "greenhouse",
+    "board": "databricks",
+    "official_domain": "databricks.com",
+    "official_careers_url": "https://www.databricks.com/company/careers/open-positions",
+    "employer_type": "direct_employer",
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "resume_path": "resumes/resume.pdf",
+  "recipient": "you@example.com",
+  "employers_path": "digest_employers.json",
+  "data_dir": "job_hunter/data/digest",
+  "min_score": 55,
+  "max_posting_age_months": 2,
+  "timeout_seconds": 12,
+  "max_workers": 8,
+  "email": {
+    "host": "smtp.gmail.com",
+    "port": 465,
+    "username": "you@gmail.com",
+    "sender": "you@gmail.com"
+  }
+}
