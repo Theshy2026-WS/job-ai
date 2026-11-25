@@ -4,7 +4,7 @@
   "employers_path": "digest_employers.json",
   "data_dir": "job_hunter/data/digest",
   "min_score": 45,
-  "max_posting_age_months": 2,
+  "max_posting_age_months": 1,
   "timeout_seconds": 12,
   "max_workers": 8,
   "email": {
@@ -23,5 +23,8 @@
       "\"data engineer\" site:google.com/about/careers",
       "\"data engineer\" site:amazon.jobs"
     ]
+  },
+  "job_boards": {
+    "enabled": true
   }
 }

@@ -423,7 +423,12 @@
     "employer_type": "direct_employer",
     "company_description": "Direct operating technology or product employer.",
     "company_priority": "established",
-    "preference_reason": "Curated recognizable technology/product brand; runtime verifies exact official job evidence."
+    "preference_reason": "Curated recognizable technology/product brand; runtime verifies exact official job evidence.",
+    "job_board_aliases": [
+      "Amazon.com Services LLC",
+      "Amazon Development Center U.S., Inc.",
+      "Amazon Web Services, Inc."
+    ]
   },
   {
     "company": "Microsoft",

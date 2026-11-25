@@ -75,7 +75,7 @@ def resume_profile(root, config):
         raise ValueError('Cannot establish experience from this resume summary; update the parser before sending.')
     years = min(int(summary.group(1)), int(config.get('experience_years', 8)))
     profile['experience_summary'] = {'data_engineering_years_min': years, 'source': str(resume)}
-    profile['preferences'].update(max_posting_age_months=config['max_posting_age_months'],
+    profile['preferences'].update(max_posting_age_months=1,
                                   allow_unknown_employment_type=True, allow_experience_stretch=False,
                                   max_experience_stretch_years=0)
     snapshot = {'resume_path': str(resume), 'sha256': hashlib.sha256(resume.read_bytes()).hexdigest(),
@@ -255,14 +255,20 @@ def identity(job):
 
 def deduplicate_jobs(jobs):
     """Keep distinct teams/requisitions; prefer the newest location duplicate."""
-    result, seen = [], set()
+    result, seen = [], {}
     for job in sorted(jobs, key=lambda j: (j.get('posted_at') or '', identity(j)), reverse=True):
         body = hashlib.sha256(clean_text(job.get('description', '')).encode()).hexdigest()
         group = (job['company'].casefold(), job['title'].casefold(), body)
         key = identity(job)
+        source = job.get('discovery_source') or {'greenhouse': 'Greenhouse', 'ashby': 'Ashby', 'lever': 'Lever', 'employer_site': '公司官网'}.get(job['source'], job['source'])
+        link = {'source': source, 'url': job.get('verified_job_url', job.get('url', ''))}
         if key in seen or group in seen:
+            representative = seen[key] if key in seen else seen[group]
+            if link not in representative['source_links']:
+                representative['source_links'].append(link)
             continue
-        seen.update([key, group])
+        job['source_links'] = [link]
+        seen[key] = seen[group] = job
         result.append(job)
     return sorted(result, key=lambda j: (-j['match']['score'], j['company'], j['title']))
 
@@ -290,7 +296,15 @@ def canonical_url(job):
 
 
 def validate_job(job, employer, profile, minimum, timeout):
-    fresh = enrich_job_metadata(job, timeout=timeout)
+    if job['source'] == 'job_board':
+        from .jobboards import get_page, parse_detail
+        final, page = get_page(job['source_listing_url'], timeout)
+        parsed = parse_detail(page, final, [employer])
+        if not parsed or identity(parsed[0]) != identity(job):
+            return None
+        fresh = parsed[0]
+    else:
+        fresh = enrich_job_metadata(job, timeout=timeout)
     recency = assess_posting(fresh, profile)
     if not recency['eligible']:
         return None
@@ -298,8 +312,9 @@ def validate_job(job, employer, profile, minimum, timeout):
     if not ranked:
         return None
     url = canonical_url(fresh)
-    final, page = public_get(url, employer, timeout)
-    if any(word in final.lower() for word in ['linkedin.com', 'error=true']) or not safe_url(final, employer):
+    if fresh['source'] != 'job_board':
+        final, page = public_get(url, employer, timeout)
+    if any(word in final.lower() for word in ['linkedin.com', 'error=true']) or (fresh['source'] != 'job_board' and not safe_url(final, employer)):
         return None
     path = unquote(urlsplit(final).path)
     if fresh['source'] in ATS_HOSTS and str(fresh['id']) not in path and str(fresh['internal_job_id'] if fresh.get('internal_job_id') else fresh['id']) not in final:
@@ -317,9 +332,12 @@ def validate_job(job, employer, profile, minimum, timeout):
 
 def format_digest(jobs, stats, snapshot, stamp):
     heading = f'Wenfei 求职职位通知 — {len(jobs)} 个新匹配 — {stamp}'
-    intro = f'按 {snapshot["data_engineering_years_min"]} 年经验上限和新简历技能筛选；美国、近两个月发布、优先较大或知名直接雇主；不使用 LinkedIn，不代投递。'
+    intro = f'按 {snapshot["data_engineering_years_min"]} 年经验上限和新简历技能筛选；美国、最近一个月发布、优先较大或知名直接雇主；官网、Greenhouse/Ashby/Lever、Indeed/Dice/Built In 多来源，不使用 LinkedIn，不代投递。'
     plain = [heading, intro, f'岗位匹配后核验来源 {stats["verified_employers"]}；读取招聘板 {stats.get("sources_read", 0)}/{stats["configured_employers"]}；已通知或已处理岗位跳过 {stats["duplicates"]}。']
     parts = [f'<h2>{html.escape(heading)}</h2><p>{html.escape(intro)}</p>', f'<p>{html.escape(plain[-1])}</p>']
+    for source, count in stats.get('discovery', {}).get('job_boards', {}).items():
+        line = f'{source}：发现链接 {count["leads"]}，读取详情 {count["read"]}，完成公司及发布日期核对 {count["verified_details"]}（还须通过岗位匹配）。'
+        plain.append(line); parts.append('<p>' + html.escape(line) + '</p>')
     if not jobs:
         plain.append('本次没有新匹配岗位；来源失败不等同于这些公司没有招聘。')
         parts.append('<p>本次没有新匹配岗位；来源失败不等同于这些公司没有招聘。</p>')
@@ -336,8 +354,9 @@ def format_digest(jobs, stats, snapshot, stamp):
         info.append('公司筛选：' + job.get('company_priority', '已核实直接雇主'))
         if m['experience_note']:
             info.append(m['experience_note'])
-        plain.extend(['', *info, job['verified_job_url']])
-        parts.append('<section style="margin:24px 0;padding:16px;border:1px solid #ddd">' + ''.join('<p>' + html.escape(x) + '</p>' for x in info) + '<a href="' + html.escape(job['verified_job_url'], quote=True) + '">查看公司官方岗位</a></section>')
+        links = job.get('source_links') or [{'source': job.get('discovery_source', job['source']), 'url': job['verified_job_url']}]
+        plain.extend(['', *info, *[link['source'] + '：' + link['url'] for link in links]])
+        parts.append('<section style="margin:24px 0;padding:16px;border:1px solid #ddd">' + ''.join('<p>' + html.escape(x) + '</p>' for x in info) + ''.join('<p><a href="' + html.escape(link['url'], quote=True) + '">查看 ' + html.escape(link['source']) + ' 职位</a></p>' for link in links) + '</section>')
     if stats['errors']:
         plain.append('\n未完成核验的来源：')
         parts.append('<h3>未完成核验的来源</h3><ul>')
@@ -360,6 +379,13 @@ def search(root, config, data, profile, db):
     existing = read_json(root / config['employers_path'])
     print('Discovering additional official employer sources...', flush=True)
     employers, direct_jobs, discovery_errors, discovery_stats = discover(root, config, existing, public_get, TARGET_TITLE)
+    if config.get('job_boards', {}).get('enabled', False):
+        from .jobboards import discover_jobboards
+        directory_path = root / config.get('discovery', {}).get('directory_path', 'employer_directory.json')
+        directory = read_json(directory_path) if directory_path.exists() else []
+        board_jobs, failures, board_stats = discover_jobboards(directory + existing, config['timeout_seconds'], config['max_workers'], config['job_boards'])
+        direct_jobs.extend(board_jobs); discovery_errors.extend(failures)
+        discovery_stats['job_boards'] = board_stats
     stats = {'configured_employers': len(employers), 'verified_employers': 0, 'sources_read': 0,
              'jobs_read': 0, 'duplicates': 0, 'company_filtered': 0, 'errors': list(discovery_errors),
              'discovery': discovery_stats}
@@ -394,7 +420,7 @@ def search(root, config, data, profile, db):
         if rank_job(job, profile, config['min_score']):
             if company_is_preferred(employer):
                 candidates.append((job, employer))
-                proofs[employer['company']] = {'official_url': employer['official_careers_url'], 'verification': 'Official domain JobPosting'}
+                proofs[employer['company']] = {'official_url': employer['official_careers_url'], 'verification': 'Reviewed employer identity + live JobPosting'}
             else:
                 stats['company_filtered'] += 1
     print(f'{stats["sources_read"]} sources read, {len(candidates)} preliminary matches after company review; checking dates and live links...', flush=True)
@@ -438,6 +464,8 @@ def main(argv=None, root=None):
         config.update(rules_version=2, experience_years=8, min_score=45)
         config.setdefault('discovery', {'enabled': True, 'directory_path': 'employer_directory.json',
                                       'search_queries': ['"data engineer" "United States" careers -site:linkedin.com']})
+    config['max_posting_age_months'] = 1
+    config.setdefault('job_boards', {'enabled': True})
     data = root / config['data_dir']
     data.mkdir(parents=True, exist_ok=True)
     # A separate OS lock; never touches the stopped application worker's lock/STOP marker.
