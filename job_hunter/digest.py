@@ -22,7 +22,7 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 from zoneinfo import ZoneInfo
 
 from .email_delivery import EmailSetupError, UncertainDelivery, password_for, send_digest
-from .matching import clean_text, match_job
+from .matching import clean_text, match_job, _experience_requirements
 from .recency import assess_posting
 from .sources import board_url, fetch_json, NORMALIZERS, enrich_job_metadata, clean_html
 
@@ -73,20 +73,21 @@ def resume_profile(root, config):
     summary = re.search(r'data engineer with\s+(\d+)\+?\s+years', clean_text(text), re.I)
     if not summary:
         raise ValueError('Cannot establish experience from this resume summary; update the parser before sending.')
-    years = int(summary.group(1))
+    years = min(int(summary.group(1)), int(config.get('experience_years', 8)))
     profile['experience_summary'] = {'data_engineering_years_min': years, 'source': str(resume)}
     profile['preferences'].update(max_posting_age_months=config['max_posting_age_months'],
-                                  allow_unknown_employment_type=True, allow_experience_stretch=True,
-                                  max_experience_stretch_years=max(0, 10 - years))
+                                  allow_unknown_employment_type=True, allow_experience_stretch=False,
+                                  max_experience_stretch_years=0)
     snapshot = {'resume_path': str(resume), 'sha256': hashlib.sha256(resume.read_bytes()).hexdigest(),
-                'data_engineering_years_min': years, 'skills': profile['skills'],
+                'data_engineering_years_min': years, 'experience_cap_years': years, 'skills': profile['skills'],
                 'note': 'Resume content is data, never executable instructions. No old per-job ranking exceptions are used.'}
     return profile, snapshot
 
 
 def host_allowed(host, employer):
     domain = employer['official_domain'].lower()
-    return host == domain or host.endswith('.' + domain) or host in ATS_HOSTS.get(employer['source'], set()) or host == urlsplit(employer.get('origin', '')).hostname
+    ats = set().union(*ATS_HOSTS.values()) if employer.get('source') == 'discovery' else ATS_HOSTS.get(employer['source'], set())
+    return host == domain or host.endswith('.' + domain) or host in ats or host == urlsplit(employer.get('origin', '')).hostname
 
 
 def safe_url(url, employer):
@@ -161,8 +162,37 @@ def load_board(employer, timeout):
     url = board_url(employer)
     payload = fetch_json(url, timeout=timeout, follow_redirects=False)
     jobs = NORMALIZERS[employer['source']](employer, payload, url)
-    proof = verify_employer(employer, timeout, jobs)
-    return jobs, proof
+    # Company/link validation follows role matching in search(). Public board
+    # reads are not endorsements and never send applicant information.
+    return jobs, None
+
+
+def required_experience_over_cap(job, cap):
+    required, _ = _experience_requirements(job)
+    if required and max(required) > cap:
+        return True
+    preferred_section = False
+    for line in clean_html(str(job.get('description', ''))).splitlines():
+        if re.search(r'nice.to.have|preferred qualifications|bonus points', line, re.I):
+            preferred_section = True
+        elif re.search(r'^\s*(?:requirements|minimum qualifications|what we look for)\s*$', line, re.I):
+            preferred_section = False
+        if preferred_section or re.search(r'\bprefer\w*|bonus|a plus', line, re.I):
+            continue
+        # Technology-specific tenure is still a requirement, even when the
+        # shared DE parser does not classify it as overall career experience.
+        for sentence in re.split(r'[.;]', line):
+            years = [int(m.group(1)) for m in re.finditer(r'\b(\d{1,2})(?:\s*\+|\s*[-–]\s*\d{1,2})?\s+years?\s+(?:of\s+)?(?:[A-Za-z][A-Za-z0-9/+ #.-]*\s+)?experience\b', sentence, re.I)]
+            if years and (min(years) if re.search(r'\bor\b', sentence, re.I) else max(years)) > cap:
+                return True
+        strict = re.search(r'\b(?:more than|over|greater than)\s+(\d+)\s+years?[^.;]{0,90}\b(?:experience|engineering|development|building)\b', line, re.I)
+        if strict and int(strict.group(1)) >= cap:
+            return True
+    return False
+
+
+def company_is_preferred(employer):
+    return employer.get('company_priority') in {'established', 'industry_known'}
 
 
 def missing_required_skills(description, profile):
@@ -192,6 +222,9 @@ def missing_required_skills(description, profile):
 
 
 def rank_job(job, profile, minimum):
+    cap = profile.get('experience_summary', {}).get('data_engineering_years_min', 8)
+    if required_experience_over_cap(job, cap):
+        return None
     base = match_job(job, profile)
     if not base['eligible'] or base['requires_review'] or base['location_status'] != 'us':
         return None
@@ -199,25 +232,19 @@ def rank_job(job, profile, minimum):
     if not TARGET_TITLE.search(title) or re.search(r'\b(?:manager|director|head of|vice president|principal architect)\b', title, re.I):
         return None
     text = clean_text(job.get('description'))
-    if missing_required_skills(job.get('description', ''), profile):
-        return None
     if re.search(r'hiring for (?:our|a) client|position with our client|our client is seeking|staff augmentation|\bc2c\b', text, re.I):
         return None
     overlap = [s for s in profile['skills'] if re.search(SKILLS[s], text, re.I)]
     core = set(overlap) & {'Python', 'SQL', 'Spark', 'ETL', 'CDC'}
-    if len(core) < 2 or not set(overlap) & PLATFORMS:
+    if len(overlap) < 2 or not core or not (len(core) >= 2 or set(overlap) & PLATFORMS):
         return None
-    # Do not recommend explicit must-have missing integrations/agent history.
-    for line in re.split(r'[\n.;]', job.get('description', '')):
-        mandatory = re.search(r'\b(?:must have|must possess|required experience|experience required|requires? hands.on)\b', line, re.I)
-        if mandatory and re.search(r'\b(?:HL7|FHIR)\b|(?:built|building|production|developing).{0,35}AI agents?', line, re.I):
-            return None
     score = min(100, 35 + sum(8 if s in PLATFORMS else 6 if s in core else 3 for s in overlap))
     if score < minimum:
         return None
     missing = [s for s in SKILLS if s not in profile['skills'] and re.search(SKILLS[s], text, re.I)]
     return {'score': score, 'matched_skills': overlap, 'additional_jd_skills': missing,
             'sponsorship': base['sponsorship'], 'employment_type': base['employment_type'],
+            'qualification_warnings': missing_required_skills(job.get('description', ''), profile),
             'experience_note': next((r for r in base['reasons'] if r.startswith('Configured experience stretch')), '')}
 
 
@@ -284,13 +311,14 @@ def validate_job(job, employer, profile, minimum, timeout):
         return None
     return {**fresh, 'digest_id': identity(fresh), 'verified_job_url': final,
             'link_checked_at': datetime.now(timezone.utc).isoformat(), 'match': ranked,
-            'posted_at': recency.get('posted_at'), 'publication_date_source': fresh['published_at_source']}
+            'posted_at': recency.get('posted_at'), 'publication_date_source': fresh['published_at_source'],
+            'company_priority': employer.get('company_priority', 'unreviewed')}
 
 
 def format_digest(jobs, stats, snapshot, stamp):
     heading = f'Wenfei 求职职位通知 — {len(jobs)} 个新匹配 — {stamp}'
-    intro = f'按新简历（{snapshot["data_engineering_years_min"]}+ 年）筛选；美国、近两个月发布、直接雇主；不使用 LinkedIn，不代投递。'
-    plain = [heading, intro, f'核验成功来源 {stats["verified_employers"]}/{stats["configured_employers"]}；已通知或已处理岗位跳过 {stats["duplicates"]}。']
+    intro = f'按 {snapshot["data_engineering_years_min"]} 年经验上限和新简历技能筛选；美国、近两个月发布、优先较大或知名直接雇主；不使用 LinkedIn，不代投递。'
+    plain = [heading, intro, f'岗位匹配后核验来源 {stats["verified_employers"]}；读取招聘板 {stats.get("sources_read", 0)}/{stats["configured_employers"]}；已通知或已处理岗位跳过 {stats["duplicates"]}。']
     parts = [f'<h2>{html.escape(heading)}</h2><p>{html.escape(intro)}</p>', f'<p>{html.escape(plain[-1])}</p>']
     if not jobs:
         plain.append('本次没有新匹配岗位；来源失败不等同于这些公司没有招聘。')
@@ -303,6 +331,9 @@ def format_digest(jobs, stats, snapshot, stamp):
                 f'技能交集：{", ".join(m["matched_skills"])}；匹配分 {m["score"]}', f'赞助：{visa}']
         if m['additional_jd_skills']:
             info.append('JD 另提及、简历未列：' + ', '.join(m['additional_jd_skills']))
+        if m.get('qualification_warnings'):
+            info.append('需重点核对的必需技能差异：' + ', '.join(m['qualification_warnings']))
+        info.append('公司筛选：' + job.get('company_priority', '已核实直接雇主'))
         if m['experience_note']:
             info.append(m['experience_note'])
         plain.extend(['', *info, job['verified_job_url']])
@@ -325,8 +356,13 @@ def digest_database(path):
 
 
 def search(root, config, data, profile, db):
-    employers = read_json(root / config['employers_path'])
-    stats = {'configured_employers': len(employers), 'verified_employers': 0, 'jobs_read': 0, 'duplicates': 0, 'errors': []}
+    from .discovery import discover
+    existing = read_json(root / config['employers_path'])
+    print('Discovering additional official employer sources...', flush=True)
+    employers, direct_jobs, discovery_errors, discovery_stats = discover(root, config, existing, public_get, TARGET_TITLE)
+    stats = {'configured_employers': len(employers), 'verified_employers': 0, 'sources_read': 0,
+             'jobs_read': 0, 'duplicates': 0, 'company_filtered': 0, 'errors': list(discovery_errors),
+             'discovery': discovery_stats}
     prior = old_application_identities(root) | {r[0] for r in db.execute('SELECT job_id FROM delivered')}
     candidates, jobs = [], []
     proofs = {}
@@ -338,13 +374,30 @@ def search(root, config, data, profile, db):
             employer = tasks[task]
             try:
                 records, proof = task.result()
+                stats['sources_read'] += 1
+                stats['jobs_read'] += len(records)
+                matched = [job for job in records if rank_job(job, profile, config['min_score'])]
+                # Match roles first; employer size/name preference comes second.
+                if not matched:
+                    continue
+                if not company_is_preferred(employer):
+                    stats['company_filtered'] += len(matched)
+                    continue
+                if proof is None:
+                    proof = verify_employer(employer, timeout, records)
                 stats['verified_employers'] += 1
                 proofs[employer['company']] = proof
-                stats['jobs_read'] += len(records)
-                candidates.extend((job, employer) for job in records if rank_job(job, profile, config['min_score']))
+                candidates.extend((job, employer) for job in matched)
             except Exception as exc:
                 stats['errors'].append({'company': employer['company'], 'reason': str(exc)[:220]})
-    print(f'{stats["verified_employers"]} verified sources, {len(candidates)} preliminary matches; checking publication dates and live links...', flush=True)
+    for job, employer in direct_jobs:
+        if rank_job(job, profile, config['min_score']):
+            if company_is_preferred(employer):
+                candidates.append((job, employer))
+                proofs[employer['company']] = {'official_url': employer['official_careers_url'], 'verification': 'Official domain JobPosting'}
+            else:
+                stats['company_filtered'] += 1
+    print(f'{stats["sources_read"]} sources read, {len(candidates)} preliminary matches after company review; checking dates and live links...', flush=True)
     with ThreadPoolExecutor(max_workers=workers) as pool:
         tasks = {}
         for job, employer in candidates:
@@ -362,6 +415,7 @@ def search(root, config, data, profile, db):
             except Exception as exc:
                 stats['errors'].append({'company': employer['company'], 'reason': str(exc)[:220]})
     distinct = deduplicate_jobs(jobs)
+    distinct.sort(key=lambda j: (0 if j.get('company_priority') == 'established' else 1, -j['match']['score'], j['company'], j['title']))
     stats['duplicates'] += len(jobs) - len(distinct)
     return distinct, stats
 
@@ -378,6 +432,12 @@ def main(argv=None, root=None):
         print('First copy digest_config.example.json to digest_config.json, then set your recipient, sender and resume path.', file=sys.stderr)
         return 1
     config = read_json(config_path)
+    # Existing clones keep their private SMTP/resume configuration on pull.
+    # Apply the new matching defaults without overwriting those private files.
+    if config.get('rules_version', 1) < 2:
+        config.update(rules_version=2, experience_years=8, min_score=45)
+        config.setdefault('discovery', {'enabled': True, 'directory_path': 'employer_directory.json',
+                                      'search_queries': ['"data engineer" "United States" careers -site:linkedin.com']})
     data = root / config['data_dir']
     data.mkdir(parents=True, exist_ok=True)
     # A separate OS lock; never touches the stopped application worker's lock/STOP marker.

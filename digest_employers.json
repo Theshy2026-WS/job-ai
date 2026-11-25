@@ -5,8 +5,12 @@
     "board": "airbyte",
     "official_domain": "airbyte.com",
     "official_careers_url": "https://airbyte.com/company/careers",
+    "ats_board_url": "https://jobs.ashbyhq.com/airbyte",
+    "verification_note": "Official careers page rendered publicly at https://airbyte.com/company/careers; observed ATS link/request https://jobs.ashbyhq.com/airbyte/embed?version=2. Public ATS GET verified 9 live listings. No applicant data entered; per-job eligibility still checked.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "ClickHouse",
@@ -14,8 +18,12 @@
     "board": "clickhouse",
     "official_domain": "clickhouse.com",
     "official_careers_url": "https://clickhouse.com/company/careers",
+    "ats_board_url": "https://jobs.ashbyhq.com/clickhouse",
+    "verification_note": "Official careers page rendered publicly at https://clickhouse.com/company/careers; observed ATS link/request https://api.ashbyhq.com/posting-api/job-board/clickhouse. Public ATS GET verified 202 live listings. No applicant data entered; per-job eligibility still checked.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Cohere Health",
@@ -23,8 +31,12 @@
     "board": "coherehealth",
     "official_domain": "coherehealth.com",
     "official_careers_url": "https://www.coherehealth.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/coherehealth",
+    "verification_note": "Official careers page resolves to https://www.coherehealth.com/careers and contains ATS link https://boards.greenhouse.io/embed/job_board/js?for=coherehealth. Public ATS GET verified 71 live listings; per-job date/location/work-authorization checks remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Cribl",
@@ -32,8 +44,12 @@
     "board": "cribl",
     "official_domain": "cribl.io",
     "official_careers_url": "https://cribl.io/careers/",
+    "ats_board_url": "https://job-boards.greenhouse.io/cribl",
+    "verification_note": "Official careers page rendered publicly at https://cribl.io/careers/; observed ATS link/request https://boards-api.greenhouse.io/v1/boards/cribl/jobs?content=true. Public ATS GET verified 76 live listings. No applicant data entered; per-job eligibility still checked.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Dataiku",
@@ -41,8 +57,12 @@
     "board": "dataiku",
     "official_domain": "dataiku.com",
     "official_careers_url": "https://www.dataiku.com/company/careers/",
+    "ats_board_url": "https://job-boards.greenhouse.io/dataiku",
+    "verification_note": "Official careers page resolves to https://www.dataiku.com/company/careers and contains ATS link https://job-boards.greenhouse.io/dataiku. Public ATS GET verified 13 live listings; per-job date/location/work-authorization checks remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "HealthVerity",
@@ -50,8 +70,12 @@
     "board": "healthverity",
     "official_domain": "healthverity.com",
     "official_careers_url": "https://healthverity.com/company/careers/",
+    "ats_board_url": "https://job-boards.greenhouse.io/healthverity",
+    "verification_note": "Official careers page resolves to https://healthverity.com/careers/ and contains ATS link https://boards.greenhouse.io/embed/job_board/js?for=healthverity. Public ATS GET verified 17 live listings; per-job date/location/work-authorization checks remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Healthie",
@@ -59,8 +83,12 @@
     "board": "healthie",
     "official_domain": "gethealthie.com",
     "official_careers_url": "https://www.gethealthie.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/healthie",
+    "verification_note": "Official careers page resolves to https://www.gethealthie.com/careers and contains ATS link https://job-boards.greenhouse.io/healthie. Public ATS GET verified 19 live listings; per-job date/location/work-authorization checks remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Monte Carlo",
@@ -68,8 +96,12 @@
     "board": "montecarlodata",
     "official_domain": "montecarlo.ai",
     "official_careers_url": "https://montecarlo.ai/careers-at-monte-carlo",
+    "ats_board_url": "https://jobs.ashbyhq.com/montecarlodata",
+    "verification_note": "Legacy official https://www.montecarlodata.com/careers/ redirects to the current official careers page, which directly links to https://jobs.ashbyhq.com/montecarlodata. Public ATS GET verified 10 live listings; per-job date/location/work-authorization checks remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Nuna",
@@ -77,8 +109,12 @@
     "board": "nuna",
     "official_domain": "nuna.com",
     "official_careers_url": "https://www.nuna.com/careers/",
+    "ats_board_url": "https://jobs.ashbyhq.com/nuna",
+    "verification_note": "Official careers page resolves to https://www.nuna.com/careers/ and contains ATS link https://jobs.ashbyhq.com/nuna. Public ATS GET verified 5 live listings; per-job date/location/work-authorization checks remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Omada Health",
@@ -86,8 +122,12 @@
     "board": "omadahealth",
     "official_domain": "omadahealth.com",
     "official_careers_url": "https://www.omadahealth.com/about-us/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/omadahealth",
+    "verification_note": "Official careers page directly links to https://boards.greenhouse.io/omadahealth (public link tracking parameters omitted). Public ATS GET verified 18 live listings; per-job date/location/work-authorization checks remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Prefect",
@@ -95,8 +135,12 @@
     "board": "prefect",
     "official_domain": "prefect.io",
     "official_careers_url": "https://www.prefect.io/careers",
+    "ats_board_url": "https://jobs.ashbyhq.com/prefect",
+    "verification_note": "Official careers page rendered publicly at https://www.prefect.io/careers; observed ATS link/request https://jobs.ashbyhq.com/prefect/embed?version=2. Public ATS GET verified 5 live listings. No applicant data entered; per-job eligibility still checked.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Ro",
@@ -104,8 +148,12 @@
     "board": "ro",
     "official_domain": "ro.co",
     "official_careers_url": "https://ro.co/careers/",
+    "ats_board_url": "https://jobs.lever.co/ro",
+    "verification_note": "Official careers page resolves to https://ro.co/careers/ and contains ATS link https://jobs.lever.co/ro/e8915351-fada-48e9-aaa1-071a205335a0. Public ATS GET verified 54 live listings; per-job date/location/work-authorization checks remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Amplitude",
@@ -113,8 +161,12 @@
     "board": "amplitude",
     "official_domain": "amplitude.com",
     "official_careers_url": "https://amplitude.com/careers",
+    "ats_board_url": "https://jobs.ashbyhq.com/amplitude",
+    "verification_note": "Official careers page resolves to https://amplitude.com/careers; observed ATS link/request https://jobs.ashbyhq.com/amplitude. Public ATS GET verified 51 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "established",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Attentive",
@@ -122,8 +174,12 @@
     "board": "attentive",
     "official_domain": "attentive.com",
     "official_careers_url": "https://www.attentive.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/attentive",
+    "verification_note": "Official careers page rendered publicly and exposed ATS link/request https://boards-api.greenhouse.io/v1/boards/attentive/departments. Public ATS GET verified 25 live listings. Read-only discovery; per-job US/publication/salary/sponsorship/LinkedIn constraints remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Benchling",
@@ -131,8 +187,12 @@
     "board": "benchling",
     "official_domain": "benchling.com",
     "official_careers_url": "https://www.benchling.com/careers",
+    "ats_board_url": "https://jobs.ashbyhq.com/benchling",
+    "verification_note": "Official careers page resolves to https://www.benchling.com/careers; observed ATS link/request https://jobs.ashbyhq.com/benchling/63d7d126-efaf-4a48-b328-f8d85b640ebf. Public ATS GET verified 51 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Braze",
@@ -140,8 +200,12 @@
     "board": "braze",
     "official_domain": "braze.com",
     "official_careers_url": "https://www.braze.com/company/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/braze",
+    "verification_note": "Official careers page rendered publicly and exposed ATS link/request https://api.greenhouse.io/v1/boards/braze/departments. Public ATS GET verified 362 live listings. Read-only discovery; per-job US/publication/salary/sponsorship/LinkedIn constraints remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "established",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Equip Health",
@@ -149,8 +213,12 @@
     "board": "equip",
     "official_domain": "equip.health",
     "official_careers_url": "https://equip.health/careers",
+    "ats_board_url": "https://jobs.ashbyhq.com/equip",
+    "verification_note": "Official careers page resolves to https://equip.health/join-us; observed ATS link/request https://jobs.ashbyhq.com/equip/form/care-delivery-talent-community. Public ATS GET verified 65 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Grow Therapy",
@@ -158,8 +226,12 @@
     "board": "grow-therapy",
     "official_domain": "growtherapy.com",
     "official_careers_url": "https://growtherapy.com/careers/",
+    "ats_board_url": "https://jobs.ashbyhq.com/grow-therapy",
+    "verification_note": "Official careers page resolves to https://growtherapy.com/careers/; observed ATS link/request https://jobs.ashbyhq.com/grow-therapy. Public ATS GET verified 30 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "LaunchDarkly",
@@ -167,8 +239,12 @@
     "board": "launchdarkly",
     "official_domain": "launchdarkly.com",
     "official_careers_url": "https://launchdarkly.com/careers/",
+    "ats_board_url": "https://job-boards.greenhouse.io/launchdarkly",
+    "verification_note": "Official careers page resolves to https://launchdarkly.com/careers/; observed ATS link/request https://boards.greenhouse.io/launchdarkly. Public ATS GET verified 45 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Maven Clinic",
@@ -176,8 +252,12 @@
     "board": "mavenclinic",
     "official_domain": "mavenclinic.com",
     "official_careers_url": "https://www.mavenclinic.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/mavenclinic",
+    "verification_note": "Official careers page rendered publicly and exposed ATS link/request https://boards-api.greenhouse.io/v1/boards/mavenclinic/jobs. Public ATS GET verified 30 live listings. Read-only discovery; per-job US/publication/salary/sponsorship/LinkedIn constraints remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Modern Health",
@@ -185,8 +265,12 @@
     "board": "modernhealth",
     "official_domain": "modernhealth.com",
     "official_careers_url": "https://www.modernhealth.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/modernhealth",
+    "verification_note": "Official careers page resolves to https://www.modernhealth.com/careers; observed ATS link/request https://boards.greenhouse.io/modernhealth. Public ATS GET verified 2 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "MotherDuck",
@@ -194,8 +278,12 @@
     "board": "MotherDuck",
     "official_domain": "motherduck.com",
     "official_careers_url": "https://motherduck.com/careers/",
+    "ats_board_url": "https://jobs.ashbyhq.com/MotherDuck",
+    "verification_note": "Official careers page resolves to https://motherduck.com/careers/; observed ATS link/request https://jobs.ashbyhq.com/MotherDuck/eff4aac0-e75c-4a1a-83fc-f2f4f00a084b. Public ATS GET verified 7 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Recursion",
@@ -203,8 +291,12 @@
     "board": "recursionpharmaceuticals",
     "official_domain": "recursion.com",
     "official_careers_url": "https://www.recursion.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/recursionpharmaceuticals",
+    "verification_note": "Official careers page resolves to https://www.recursion.com/careers; observed ATS link/request https://boards.greenhouse.io/embed/job_board/js?for=recursionpharmaceuticals. Public ATS GET verified 7 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Sentry",
@@ -212,8 +304,12 @@
     "board": "sentry",
     "official_domain": "sentry.io",
     "official_careers_url": "https://sentry.io/careers/",
+    "ats_board_url": "https://jobs.ashbyhq.com/sentry",
+    "verification_note": "Official careers page resolves to https://sentry.io/careers/; observed ATS link/request https://jobs.ashbyhq.com/sentry/1b63fc5e-ee6e-42b4-924c-a48836722cba. Public ATS GET verified 39 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Supabase",
@@ -221,8 +317,12 @@
     "board": "supabase",
     "official_domain": "supabase.com",
     "official_careers_url": "https://supabase.com/careers",
+    "ats_board_url": "https://jobs.ashbyhq.com/supabase",
+    "verification_note": "Official careers page resolves to https://supabase.com/careers; observed ATS link/request https://jobs.ashbyhq.com/supabase/3b5d54ca-741b-45ac-bd3f-31605a0d3541. Public ATS GET verified 68 live listings. No applicant information sent; current US/date/salary/sponsorship/LinkedIn constraints remain per-job checks.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "insitro",
@@ -230,8 +330,12 @@
     "board": "insitro",
     "official_domain": "insitro.com",
     "official_careers_url": "https://www.insitro.com/careers/",
+    "ats_board_url": "https://jobs.ashbyhq.com/insitro",
+    "verification_note": "Official careers page rendered publicly and exposed ATS link/request https://api.ashbyhq.com/posting-api/job-board/insitro. Public ATS GET verified 15 live listings. Read-only discovery; per-job US/publication/salary/sponsorship/LinkedIn constraints remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Cockroach Labs",
@@ -239,8 +343,12 @@
     "board": "cockroachlabs",
     "official_domain": "cockroachlabs.com",
     "official_careers_url": "https://www.cockroachlabs.com/careers/",
+    "ats_board_url": "https://job-boards.greenhouse.io/cockroachlabs",
+    "verification_note": "Official careers page rendered publicly and exposed ATS link/request https://boards-api.greenhouse.io/v1/boards/cockroachlabs/jobs. Public ATS GET verified 10 live listings. Read-only discovery; per-job US/publication/salary/sponsorship/LinkedIn constraints remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Customer.io",
@@ -248,8 +356,12 @@
     "board": "customerio",
     "official_domain": "customer.io",
     "official_careers_url": "https://customer.io/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/customerio",
+    "verification_note": "Official careers page rendered publicly and exposed ATS link/request https://job-boards.greenhouse.io/customerio/jobs/8121617. Public ATS GET verified 23 live listings. Read-only discovery; per-job US/publication/salary/sponsorship/LinkedIn constraints remain required.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Hims & Hers",
@@ -257,8 +369,12 @@
     "board": "hims-and-hers",
     "official_domain": "hims.com",
     "official_careers_url": "https://www.hims.com/careers-professionals",
+    "ats_board_url": "https://jobs.ashbyhq.com/hims-and-hers",
+    "verification_note": "Official careers page See open positions link was opened and led directly to jobs.ashbyhq.com/hims-and-hers. Public ATS API returned 151 active postings on 2026-11-05T22:10:46+00:00.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "established",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Clover Health",
@@ -266,8 +382,12 @@
     "board": "cloverhealth",
     "official_domain": "cloverhealth.com",
     "official_careers_url": "https://www.cloverhealth.com/about-us/current-openings",
+    "ats_board_url": "https://job-boards.greenhouse.io/cloverhealth",
+    "verification_note": "Official current-openings HTML embeds https://boards.greenhouse.io/embed/job_board/js?for=cloverhealth; saved original official HTML. Public ATS API returned 51 active postings on 2026-11-05T22:10:46+00:00.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "established",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Cedar",
@@ -275,8 +395,12 @@
     "board": "careportalinc",
     "official_domain": "cedar.com",
     "official_careers_url": "https://www.cedar.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/careportalinc",
+    "verification_note": "Official careers links to official open-roles page whose HTML embeds https://boards.greenhouse.io/embed/job_board/js?for=careportalinc. Public ATS API returned 12 active postings on 2026-11-05T22:10:46+00:00.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Zocdoc",
@@ -284,8 +408,12 @@
     "board": "zocdoc",
     "official_domain": "zocdoc.com",
     "official_careers_url": "https://www.zocdoc.com/about/careers-list/",
+    "ats_board_url": "https://job-boards.greenhouse.io/zocdoc",
+    "verification_note": "Opened Senior Software Engineer, Data on official career list; official role page embeds boards.greenhouse.io/embed/job_app?for=zocdoc&token=8227741. Public ATS API returned 57 active postings on 2026-11-05T22:10:46+00:00.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Lyra Health",
@@ -293,8 +421,12 @@
     "board": "lyrahealth",
     "official_domain": "lyrahealth.com",
     "official_careers_url": "https://careers.lyrahealth.com/",
+    "ats_board_url": "https://jobs.lever.co/lyrahealth",
+    "verification_note": "Official careers Technology jobs -> Senior Software Engineer detail -> Apply Now link was opened at https://jobs.lever.co/lyrahealth/57a37acd-f0f2-4322-abe8-4197db4dd643/apply; no application fields entered. Public ATS API returned 484 active postings on 2026-11-05T22:10:46+00:00.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Collective Health",
@@ -302,8 +434,12 @@
     "board": "collectivehealth",
     "official_domain": "collectivehealth.com",
     "official_careers_url": "https://jobs.collectivehealth.com/",
+    "ats_board_url": "https://job-boards.greenhouse.io/collectivehealth",
+    "verification_note": "Official careers Open Positions -> Senior Manager Claims Systems detail; official apply-page HTML includes app.greenhouse.io/embed/job_board/js?for=collectivehealth&ver=1. Public ATS API returned 3 active postings on 2026-11-05T22:10:46+00:00.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Spring Health",
@@ -311,8 +447,12 @@
     "board": "deaa6ad2-d184-436b-b69e-17f761da1d94",
     "official_domain": "springhealth.com",
     "official_careers_url": "https://www.springhealth.com/open-roles",
+    "ats_board_url": "https://jobs.ashbyhq.com/deaa6ad2-d184-436b-b69e-17f761da1d94",
+    "verification_note": "Official careers links to open-roles; its inline code fetches official /sh-app/api/jobs. That public official payload exposes live jobs.ashbyhq.com/deaa6ad2-d184-436b-b69e-17f761da1d94/<posting>/application URLs; board UUID is observed, not guessed. Public ATS API returned 97 active postings on 2026-11-05T22:10:46+00:00.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "PENN Interactive",
@@ -320,8 +460,12 @@
     "board": "penninteractive",
     "official_domain": "pennentertainment.com",
     "official_careers_url": "https://www.pennentertainment.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/penninteractive",
+    "verification_note": "Official Greenhouse public API verified 37 live listings, including Senior Data Engineer 6229385004: first published 2026-10-20, US remote, BigQuery/Airflow/Python, 4+ years, $130k-$175k, no explicit visa exclusion. LinkedIn is optional in the public question schema. Corporate careers GET returned 403, so no outbound company link was observed; the official ATS JD identifies PENN Entertainment and PENN Interactive/theScore. WOTC participation, sports facts and Docker experience require confirmed answers. No applicant information sent.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Sailor Health",
@@ -329,8 +473,12 @@
     "board": "sailorhealth",
     "official_domain": "sailorhealth.com",
     "official_careers_url": "https://www.sailorhealth.com/careers/corporate",
+    "ats_board_url": "https://jobs.ashbyhq.com/sailorhealth",
+    "verification_note": "Official corporate careers GET 200 embeds public Ashby job-board API token sailorhealth. API has 163 live listings; Founding Data & Analytics Engineer (NYC) 55702dde-a7c4-458c-96aa-487c0f4b3561 published 2026-10-19, full time, NYC onsite, 3-10 years, score 53, sponsorship unclear. Snowflake/dbt, GraphQL, unstructured-data/FHIR and AI/ML analysis experience remain unconfirmed; review fit and required questions first. No applicant information sent.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "MeridianLink",
@@ -338,8 +486,12 @@
     "board": "meridianlink",
     "official_domain": "meridianlink.com",
     "official_careers_url": "https://www.meridianlink.com/careers/",
+    "ats_board_url": "https://jobs.ashbyhq.com/meridianlink",
+    "verification_note": "Official careers page rendered HTTP 200 in an isolated headless browser, no security challenge. Observed iframe#ashby_embed_iframe title Ashby Job Board with exact src https://jobs.ashbyhq.com/meridianlink?embed=js, plus actual public Ashby job-board requests. Fresh public ATS GET verified 18 active listings and Sr Data Engineer 1aca2b50-8f84-4b0c-b06f-7c8ae47e6b30, last published 2026-10-14, US remote, full time, $95k-$135k, no explicit sponsorship restriction in JD, match score57. Static GET403 was a rendering limitation, not missing company-to-ATS proof. Required form facts and LinkedIn exclusion must still be preflighted. No applicant data, uploads or submissions.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "People Data Labs",
@@ -347,8 +499,12 @@
     "board": "people-data-labs",
     "official_domain": "peopledatalabs.com",
     "official_careers_url": "https://www.peopledatalabs.com/company#jobs",
+    "ats_board_url": "https://jobs.ashbyhq.com/people-data-labs",
+    "verification_note": "Official homepage links /company#jobs. Rendered public company careers section HTTP 200 exposes visible anchors to the exact Ashby Senior Data Engineer ebb9e70d-595b-4e4e-ad5a-9425abd7abe6 and Data Engineer 98b60e46-4da9-4ca5-8e11-676b23e950c6 jobs. Fresh public ATS GET verified both live, last published 2026-10-26, countryUS, remote, full time, salary $200k-$220k senior / $180k-$200k data engineer, no explicit sponsorship restriction in JD, match score81 each. Required form facts and LinkedIn exclusion must still be preflighted. No applicant data, uploads or submissions.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Virta Health",
@@ -356,8 +512,12 @@
     "board": "virtahealth",
     "official_domain": "virtahealth.com",
     "official_careers_url": "https://www.virtahealth.com/careers",
+    "ats_board_url": "https://jobs.ashbyhq.com/virtahealth",
+    "verification_note": "Actual official careers anchor See our open positions links the exact Ashby virtahealth board; live public API has24jobs. Verified evidence tmp/forms/heartbeat_2026-11-07_0259_sources.json and cached careers/API. SeniorAnalyticsEngineer714ee3dd-46f5-425a-b19b-a92d948a069b has actual2026-10-30publishedAt/JSONLDdatePosted, USAremoteFullTime, CTnotexcluded, SQL/Python/BigQuery/GCP/healthcare overlap; no explicit sponsorship ban and actual browserLinkedInoptional. This is a monitored official source, not a ready application: substantialdbt/LookML experience and requiredfamilial/AItoolsanswers remain unconfirmed; phonecontrol issue is technical and must not become a repeat personal-fact question. No applicantPII uploaded/filled/submitted and no claim. General authorization covers verifiedemployers; maintain strict per-job screening, missinganswer preflight, privacyreview, namedapproval and dedup.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Rula",
@@ -365,8 +525,12 @@
     "board": "rula",
     "official_domain": "rula.com",
     "official_careers_url": "https://www.rula.com/careers/",
+    "ats_board_url": "https://jobs.ashbyhq.com/rula",
+    "verification_note": "2026-11-08 verified actual official See open positions anchor href=https://jobs.ashbyhq.com/rula; exact lowercase Ashby token rula rechecked with public GET https://api.ashbyhq.com/posting-api/job-board/rula?includeCompensation=true (HTTP200, 30 jobs). The existing US-remote Sr. Data Engineer 7eebb402-3215-4d71-9850-fd35f3da3b4f has authoritative ashby.publishedAt=2026-06-29T22:00:14.450+00:00 and is outside the current Sep8 cutoff; it is NOT currently eligible. Official link/API evidence cached in tmp/forms/heartbeat_2026-11-08_1328_sources.json. Prepared for ongoing discovery/monitoring of future genuinely new US data-engineering vacancies, not approval of any stale current vacancy. Every future application must still satisfy the original rolling two-calendar-month publication/republication cutoff, US location, employment-type and truthful experience matching, visa/sponsorship exclusions, required-LinkedIn skip, duplicate/protected-outcome checks, named recipient authorization and applicable privacy/agreement gates. No applicant data was sent; this manifest preparation does not register sources or submit applications.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Talkspace",
@@ -374,8 +538,12 @@
     "board": "talkspace",
     "official_domain": "talkspace.com",
     "official_careers_url": "https://www.talkspace.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/talkspace",
+    "verification_note": "2026-11-08 verified official corporate careers embeds script https://boards.greenhouse.io/embed/job_board/js?for=talkspace; exact lowercase corporate board token talkspace rechecked with public GET https://boards-api.greenhouse.io/v1/boards/talkspace/jobs?content=true (HTTP200, 23 jobs). This is the corporate board, not talkspacetherapist or talkspacepsychiatry. Existing Senior Data Engineer 5831816004 has authoritative greenhouse.first_published=2026-03-18T17:01:30-04:00 and is outside the current Sep8 cutoff; 2026-10-09 updated_at is NOT republication evidence and does not make it eligible. Official link/API evidence cached in tmp/forms/heartbeat_2026-11-08_0124_sources.json. Prepared for ongoing discovery/monitoring of future genuinely new US data-engineering vacancies, not approval of any stale current vacancy. Every future application must still satisfy the original rolling two-calendar-month publication/republication cutoff, US location, employment-type and truthful experience matching, visa/sponsorship exclusions, required-LinkedIn skip, duplicate/protected-outcome checks, named recipient authorization and applicable privacy/agreement gates. No applicant data was sent; this manifest preparation does not register sources or submit applications.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Hinge Health",
@@ -383,8 +551,12 @@
     "board": "hinge-health",
     "official_domain": "hingehealth.com",
     "official_careers_url": "https://www.hingehealth.com/careers/",
+    "ats_board_url": "https://jobs.ashbyhq.com/hinge-health",
+    "verification_note": "Official careers redirect verified to exact Ashby hinge-health, public API85 live jobs; current US Backend candidate6945d07e-2d07-47a1-a91c-c7e809ab9cc0 last published2026-11-03, Python explicitly accepted, optional LinkedIn actually observed on public empty form. Related same-narrative Backend IDs must not cause duplicate applications. Current Senior Staff DE May21 remains excluded. Verified2026-11-08. Evidence tmp/forms/heartbeat_2026-11-08_1932_sources.json. Every future application remains subject to rolling two-calendar-month true publication, US geography, truthful skill/tenure matching, visa exclusions, required-LinkedIn skip, recipient authorization, privacy/agreement controls, protected-outcome and opportunity-deduplication gates. Manifest preparation alone does not register or send any application.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "smaller_or_unreviewed",
+    "preference_reason": "Smaller or not yet reviewed for current company-size/name preference."
   },
   {
     "company": "Iterable",
@@ -392,8 +564,12 @@
     "board": "iterable",
     "official_domain": "iterable.com",
     "official_careers_url": "https://iterable.com/careers/",
+    "ats_board_url": "https://jobs.ashbyhq.com/iterable",
+    "verification_note": "Official careers actual embed src=https://jobs.ashbyhq.com/iterable/embed?version=2, exact lowercase Ashby iterable public API18 live jobs. Staff Data Engineer and Data Engineer II are recent but located in Lisbon, Portugal, so excluded from current US applications; monitor this genuine data-engineering employer only for future qualifying US postings. Verified2026-11-08. Evidence tmp/forms/heartbeat_2026-11-08_1932_sources.json. Every future application remains subject to rolling two-calendar-month true publication, US geography, truthful skill/tenure matching, visa exclusions, required-LinkedIn skip, recipient authorization, privacy/agreement controls, protected-outcome and opportunity-deduplication gates. Manifest preparation alone does not register or send any application.",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Affirm",
@@ -401,8 +577,12 @@
     "board": "affirm",
     "official_domain": "affirm.com",
     "official_careers_url": "https://www.affirm.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/affirm",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "verification_note": "Official careers page located2026-11-24; runtime must verify its actual ATS link before accepting this source.",
+    "company_priority": "established",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Fivetran",
@@ -410,8 +590,12 @@
     "board": "fivetran",
     "official_domain": "fivetran.com",
     "official_careers_url": "https://www.fivetran.com/careers",
+    "ats_board_url": "https://job-boards.greenhouse.io/fivetran",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "verification_note": "Official careers page located2026-11-24; runtime must verify its actual ATS link before accepting this source.",
+    "company_priority": "established",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Starburst",
@@ -419,8 +603,12 @@
     "board": "starburst",
     "official_domain": "starburst.io",
     "official_careers_url": "https://www.starburst.io/careers/open-roles/",
+    "ats_board_url": "https://job-boards.greenhouse.io/starburst",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "verification_note": "Official careers page located2026-11-24; runtime must verify its actual ATS link before accepting this source.",
+    "company_priority": "industry_known",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   },
   {
     "company": "Databricks",
@@ -428,7 +616,11 @@
     "board": "databricks",
     "official_domain": "databricks.com",
     "official_careers_url": "https://www.databricks.com/company/careers/open-positions",
+    "ats_board_url": "https://job-boards.greenhouse.io/databricks",
     "employer_type": "direct_employer",
-    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure."
+    "company_description": "Direct operating employer in software products, healthcare delivery, financial services or data infrastructure.",
+    "verification_note": "Official careers page located2026-11-24; runtime must verify its actual ATS link before accepting this source.",
+    "company_priority": "established",
+    "preference_reason": "Curated established employer or recognizable product brand; no live headcount claim."
   }
 ]

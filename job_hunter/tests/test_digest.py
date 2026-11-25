@@ -30,7 +30,7 @@ def job():
 def employer():
     return {'company': 'Real Product Co', 'source': 'ashby', 'board': 'real',
             'official_domain': 'real.example', 'official_careers_url': 'https://real.example/careers',
-            'employer_type': 'direct_employer', 'company_description': 'Database software product company.'}
+            'company_priority': 'established', 'employer_type': 'direct_employer', 'company_description': 'Database software product company.'}
 
 
 class Filtering(unittest.TestCase):
