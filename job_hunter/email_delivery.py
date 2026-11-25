@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import ctypes
+from contextlib import contextmanager
 from ctypes import wintypes
 from email.message import EmailMessage
 from email.utils import formatdate, make_msgid
@@ -18,6 +19,51 @@ class EmailSetupError(RuntimeError):
 
 class UncertainDelivery(RuntimeError):
     """The DATA phase began but no reliable delivery acknowledgement was returned."""
+
+
+@contextmanager
+def smtp_connection(config):
+    """Fallback is pre-authentication only; never retry a sent message."""
+    host, port = config['host'], int(config['port'])
+    ports = [port, 587] if host.lower() == 'smtp.gmail.com' and port == 465 else [port]
+    connection = None
+    for candidate in ports:
+        try:
+            if candidate == 587:
+                connection = smtplib.SMTP(host, candidate, timeout=30)
+                client = connection.__enter__()
+                client.ehlo()
+                client.starttls(context=ssl.create_default_context())
+                client.ehlo()
+            else:
+                connection = smtplib.SMTP_SSL(host, candidate, context=ssl.create_default_context(), timeout=30)
+                client = connection.__enter__()
+            break
+        except ssl.SSLCertVerificationError as exc:
+            if connection:
+                connection.close()
+            raise EmailSetupError('SMTP TLS certificate verification failed. Check the system clock and trusted certificates; verification was not disabled.') from exc
+        except (OSError, smtplib.SMTPException) as exc:
+            if connection:
+                connection.close()
+            if candidate == ports[-1]:
+                raise EmailSetupError('SMTP connection/TLS failed before authentication on port(s) ' + ', '.join(map(str, ports)) + '. This does not establish that the password is wrong. Check network, VPN/proxy/firewall, and email.host/email.port; then retry --configure-email.') from exc
+            print('SMTP 465 connection failed; trying Gmail STARTTLS on 587 (no email sent).')
+    try:
+        yield client
+    finally:
+        # Closing after a completed command must not turn an acknowledged send
+        # or successful login into failure just because QUIT was disconnected.
+        connection.close()
+
+
+def authenticate(smtp, username, password):
+    try:
+        smtp.login(username, password)
+    except smtplib.SMTPAuthenticationError as exc:
+        raise EmailSetupError('SMTP authentication rejected. Check email.username and use a Google app password for that same account, not the normal account password. No new credential saved.') from exc
+    except (OSError, smtplib.SMTPException) as exc:
+        raise EmailSetupError('SMTP disconnected during authentication. No new credential saved; check network/VPN/firewall and retry --configure-email. This alone does not prove the password is wrong.') from exc
 
 
 class _CREDENTIALW(ctypes.Structure):
@@ -80,8 +126,8 @@ def password_for(config, interactive=True, replace=False):
     if not value:
         raise EmailSetupError('No password supplied; no email sent.')
     # Authenticate before persisting anything. This sends no message.
-    with smtplib.SMTP_SSL(config['host'], int(config['port']), context=ssl.create_default_context(), timeout=30) as smtp:
-        smtp.login(config['username'], value)
+    with smtp_connection(config) as smtp:
+        authenticate(smtp, config['username'], value)
     credential_write(config['username'], value)
     return value
 
@@ -97,8 +143,8 @@ def send_digest(config, recipient, subject, text, html, password, message_id=Non
     message.add_alternative(html, subtype='html')
     # Connect/auth errors are definitely pre-send. Errors after DATA begins are
     # uncertain, so the caller must retain the outbox rather than silently retry.
-    with smtplib.SMTP_SSL(config['host'], int(config['port']), context=ssl.create_default_context(), timeout=30) as smtp:
-        smtp.login(config['username'], password)
+    with smtp_connection(config) as smtp:
+        authenticate(smtp, config['username'], password)
         try:
             refused = smtp.send_message(message)
         except smtplib.SMTPRecipientsRefused:

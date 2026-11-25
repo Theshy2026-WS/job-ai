@@ -82,3 +82,7 @@ python -m unittest discover -s job_hunter/tests
 ## 更新已有安装
 
 执行 `git pull` 后仍使用本地 `digest_config.json`、简历和凭据。旧配置在内存中自动采用第二版默认规则：8年上限、匹配阈值45和官网发现；不会覆盖邮箱、路径或密码。新配置可用 `rules_version: 2` 显式自定义阈值和 `discovery`。动态招聘页、访问限制或缺少真实发布日期可能导致来源无法核验；报告会列出错误，不能保证覆盖所有公司或全部职位。
+
+## 邮件连接失败
+
+若出现 `Connection unexpectedly closed`，这表示连接中断，并不能单独证明密码错误。Gmail 默认465加密连接失败时，新版本会在认证前尝试587 STARTTLS；不会降级到明文或在邮件发送后自动重试。两种连接都失败时，检查网络、VPN/代理、防火墙，以及本地 `email.host`、`email.port`；认证被明确拒绝时，再核对账号和应用专用密码。成功登录后才保存新凭据，不发送配置测试邮件。
