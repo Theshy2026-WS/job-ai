@@ -332,7 +332,7 @@ def validate_job(job, employer, profile, minimum, timeout):
 
 def format_digest(jobs, stats, snapshot, stamp):
     heading = f'Wenfei 求职职位通知 — {len(jobs)} 个新匹配 — {stamp}'
-    intro = f'按 {snapshot["data_engineering_years_min"]} 年经验上限和新简历技能筛选；美国、最近一个月发布、优先较大或知名直接雇主；官网、Greenhouse/Ashby/Lever、Indeed/Dice/Built In 多来源，不使用 LinkedIn，不代投递。'
+    intro = f'按 {snapshot["data_engineering_years_min"]} 年经验上限和新简历技能筛选；美国、最近一个月发布、优先较大或知名直接雇主；官网、Greenhouse/Ashby/Lever、Indeed/Dice/Built In/Hiring.cafe 多来源，不使用 LinkedIn，不代投递。'
     plain = [heading, intro, f'岗位匹配后核验来源 {stats["verified_employers"]}；读取招聘板 {stats.get("sources_read", 0)}/{stats["configured_employers"]}；已通知或已处理岗位跳过 {stats["duplicates"]}。']
     parts = [f'<h2>{html.escape(heading)}</h2><p>{html.escape(intro)}</p>', f'<p>{html.escape(plain[-1])}</p>']
     for source, count in stats.get('discovery', {}).get('job_boards', {}).items():
@@ -379,6 +379,8 @@ def search(root, config, data, profile, db):
     existing = read_json(root / config['employers_path'])
     print('Discovering additional official employer sources...', flush=True)
     employers, direct_jobs, discovery_errors, discovery_stats = discover(root, config, existing, public_get, TARGET_TITLE)
+    directory_path = root / config.get('discovery', {}).get('directory_path', 'employer_directory.json')
+    directory = read_json(directory_path) if directory_path.exists() else []
     if config.get('job_boards', {}).get('enabled', False):
         from .jobboards import discover_jobboards
         directory_path = root / config.get('discovery', {}).get('directory_path', 'employer_directory.json')
@@ -386,6 +388,12 @@ def search(root, config, data, profile, db):
         board_jobs, failures, board_stats = discover_jobboards(directory + existing, config['timeout_seconds'], config['max_workers'], config['job_boards'])
         direct_jobs.extend(board_jobs); discovery_errors.extend(failures)
         discovery_stats['job_boards'] = board_stats
+    if config.get('hiringcafe', {}).get('enabled', False):
+        from .hiringcafe import discover as hiring_discover
+        print('Searching Hiring.cafe in a visible browser (read-only)...', flush=True)
+        hiring_jobs, failures, counts = hiring_discover(directory + existing, config['timeout_seconds'], config['hiringcafe'])
+        direct_jobs.extend(hiring_jobs); discovery_errors.extend(failures)
+        discovery_stats.setdefault('job_boards', {})['Hiring.cafe'] = counts
     stats = {'configured_employers': len(employers), 'verified_employers': 0, 'sources_read': 0,
              'jobs_read': 0, 'duplicates': 0, 'company_filtered': 0, 'errors': list(discovery_errors),
              'discovery': discovery_stats}
@@ -466,6 +474,7 @@ def main(argv=None, root=None):
                                       'search_queries': ['"data engineer" "United States" careers -site:linkedin.com']})
     config['max_posting_age_months'] = 1
     config.setdefault('job_boards', {'enabled': True})
+    config.setdefault('hiringcafe', {'enabled': True, 'pages': 3})
     data = root / config['data_dir']
     data.mkdir(parents=True, exist_ok=True)
     # A separate OS lock; never touches the stopped application worker's lock/STOP marker.

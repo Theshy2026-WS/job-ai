@@ -96,3 +96,13 @@ python -m unittest discover -s job_hunter/tests
 来源覆盖有实际限制：搜索引擎只返回索引子集；站点403、登录墙、动态结构、缺失JobPosting、未审核雇主会造成未完成核验。没有授权API时，不绕过访问限制。报告按来源记录发现/读取/核对数（不是符合简历数量）；若这些站点均为0，不能声称本轮实际取得了这些来源的可发职位。
 
 公开 RSS 搜索在某些网络上返回无关结果，本次实测未发现 Indeed/Dice/Built In 有效链接，因此不能把它视为稳定完整接入。可选配置本机环境变量 `BRAVE_SEARCH_API_KEY`，改用 [Brave 官方 Web Search API](https://api-dashboard.search.brave.com/app/documentation/web-search/get-started)（需自行取得服务账号及密钥，可能有费用）；源码不保存密钥。只发送通用职位查询，不发送简历或个人资料。API仅用于发现，搜索freshness不能替代详情里的真实datePosted，也不能解除站点访问限制。未配置时保留无需密钥的有限RSS发现，并明确报告零覆盖。
+
+## Hiring.cafe 浏览器搜索
+
+默认启用 `hiringcafe.enabled`。安装更新后的 requirements，并安装普通 Google Chrome。运行时打开一份独立的可见Chrome窗口，从真实UI生成的公开搜索链接搜索数据工程，读取职位卡片、翻页及完整详情，不要求搜索API密钥。`hiringcafe.pages` 控制每次读取的结果页数，默认3，可自行增加；这不是全部HiringCafe职位的覆盖承诺。不会使用已有个人浏览器登录资料、登录账号、上传简历、点击Apply或绕过验证码。
+
+正常网页地址和按钮也是一种“接入方式”，不一定需要厂商API。与代理现场操作的区别是：本地脚本必须把这些步骤保存成可重复执行的程序，并处理页面重绘、访问拒绝及日期核验。
+
+网站当前已从 hiring.cafe 跳转 hiringcafe.com。搜索页“1 month”在本次UI生成的链接中使用 `dateFetchedPastNDays=61`，不能将其认作真实发布日期或直接认定符合一个月要求；脚本仍从详情JobPosting.datePosted独立执行纽约一个日历月限制。缺少真实日期或雇主不在审核目录时不发送。
+
+本次实际验证：普通HTTP返回403；普通Chrome成功读到一份完整公开详情及明确datePosted，搜索页读到37个详情链接。后续批量详情读取出现403/429，没有取得可发送候选。现遇401/403/429即停止该来源，不循环请求。因此浏览器方式已加入，但也会受到网站访问限制，不能保证每轮都有Hiring.cafe结果。邮件保留Hiring.cafe原始详情链接并标注来源；报告分别记录发现、读取和核对数量。

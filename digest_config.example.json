@@ -26,5 +26,9 @@
   },
   "job_boards": {
     "enabled": true
+  },
+  "hiringcafe": {
+    "enabled": true,
+    "pages": 3
   }
 }

@@ -18,6 +18,7 @@ PROVIDERS = {
     'Indeed': ('indeed.com', 'site:indeed.com/viewjob "data engineer" "United States"'),
     'Dice': ('dice.com', 'site:dice.com/job-detail "data engineer"'),
     'Built In': ('builtin.com', 'site:builtin.com/job "data engineer"'),
+    'Hiring.cafe': ('hiringcafe.com', ''),
 }
 
 
@@ -27,6 +28,8 @@ def provider_for(url):
         if p.scheme != 'https' or p.username or p.password or p.port:
             return None
         host = p.hostname or ''
+        if host in {'hiring.cafe', 'hiringcafe.com', 'www.hiringcafe.com'} and re.fullmatch(r'/job/[A-Za-z0-9-]+/?', p.path):
+            return 'Hiring.cafe'
         if host in {'www.indeed.com', 'indeed.com'} and p.path == '/viewjob' and parse_qs(p.query).get('jk'):
             return 'Indeed'
         if host in {'www.dice.com', 'dice.com'} and re.fullmatch(r'/job-detail/[a-zA-Z0-9-]+/?', p.path):
@@ -40,6 +43,9 @@ def provider_for(url):
 
 def get_page(url, timeout):
     source = provider_for(url)
+    if source == 'Hiring.cafe':
+        from .hiringcafe import get_detail
+        return get_detail(url, timeout)
     if not source:
         raise ValueError('Not an allowed job-board detail URL')
     class DetailRedirect(HTTPRedirectHandler):
@@ -129,6 +135,8 @@ def discover_jobboards(employers, timeout, workers, settings):
         return [], [], {}
     urls, errors, counts = set(), [], {}
     for source, (_, query) in PROVIDERS.items():
+        if source == 'Hiring.cafe':
+            continue  # Its own public browser search, not an indexed RSS query.
         counts[source] = {'leads': 0, 'read': 0, 'verified_details': 0}
         try:
             for url in search_results(query, timeout):
