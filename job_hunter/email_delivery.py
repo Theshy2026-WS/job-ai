@@ -115,6 +115,8 @@ def credential_write(username, password):
 
 
 def password_for(config, interactive=True, replace=False):
+    if str(config.get('username', '')).strip().lower() in {'', 'you@gmail.com', 'you@example.com'} or str(config.get('sender', '')).strip().lower() in {'', 'you@gmail.com', 'you@example.com'}:
+        raise EmailSetupError('Replace example email.username and email.sender in digest_config.json with your real Gmail address before entering its app password.')
     value = None if replace else os.environ.get('JOB_DIGEST_SMTP_PASSWORD') or credential_read(config['username'])
     if value:
         return value

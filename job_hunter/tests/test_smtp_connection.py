@@ -7,6 +7,14 @@ from job_hunter import email_delivery as mail
 class SMTPConnectionTests(unittest.TestCase):
     config = {'host': 'smtp.gmail.com', 'port': 465, 'username': 'test@example.test', 'sender': 'test@example.test'}
 
+    def test_template_account_rejected_before_password_or_network(self):
+        with patch.object(mail.getpass, 'getpass') as prompt, patch.object(mail, 'credential_read') as read, patch.object(mail.smtplib, 'SMTP_SSL') as connect:
+            with self.assertRaisesRegex(mail.EmailSetupError, 'example email.username'):
+                mail.password_for({**self.config, 'username': 'you@gmail.com'}, replace=True)
+            prompt.assert_not_called()
+            read.assert_not_called()
+            connect.assert_not_called()
+
     def test_closed_465_uses_starttls_before_login(self):
         with patch.object(mail.smtplib, 'SMTP_SSL', side_effect=smtplib.SMTPServerDisconnected('closed')), patch.object(mail.smtplib, 'SMTP') as fallback:
             client = fallback.return_value.__enter__.return_value
